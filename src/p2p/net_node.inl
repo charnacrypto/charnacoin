@@ -487,10 +487,11 @@ namespace nodetool
       {
         MDEBUG("DNS lookup for " << m_seed_nodes_list[i] << ": " << result.size() << " results");
         // if no results for node, thread's lookup likely timed out
+        // @TODO: #CHARNACOIN: use global config P2P port variable instead, find same behavior on other files
         if (result.size())
         {
           for (const auto& addr_string : result)
-            full_addrs.insert(addr_string + ":18080");
+            full_addrs.insert(addr_string + ":18090");
         }
         ++i;
       }

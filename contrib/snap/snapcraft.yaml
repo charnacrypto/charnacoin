@@ -1,31 +1,32 @@
-name: monero
+name: charnacoin
 version: 0.10.2-1
-summary: "Monero: the secure, private, untraceable cryptocurrency https://getmonero.org"
+summary: "Charnacoin: the modern, secure, easy crypto currency solution https://charnacoin.com"
 description: |
-    Monero is a private, secure, untraceable, decentralised digital currency.
-    You are your bank, you control your funds, and nobody can trace your transfers
-    unless you allow them to do so.
+    Charnacoin is a new cryptocurrency based on CryptoNote technology. 
+    It's major benefit is to provide much stronger privacy to both the senders and receivers of transactions. 
+    With Charnacoin, you are your own bank. 
+    Only you control and are responsible for your funds, and your accounts and transactions are kept private from prying eyes. 
 grade: devel
 confinement: strict
 
 apps:
-    monerod:
+    charnacoind:
         daemon: forking
         command: |
-          monerod-wrapper --detach --data-dir ${SNAP_COMMON} --config-file ${SNAP_USER_DATA}/etc/monerod.conf
+          charnacoind-wrapper --detach --data-dir ${SNAP_COMMON} --config-file ${SNAP_USER_DATA}/etc/charnacoind.conf
         plugs:
             - network
             - network-bind
-    monero-wallet-rpc:
+    charnacoin-wallet-rpc:
         command: |
-          monero-wallet-rpc --log-file ${SNAP_USER_DATA}
+          charnacoin-wallet-rpc --log-file ${SNAP_USER_DATA}
         plugs:
             - home
             - network
             - network-bind
-    monero-wallet-cli:
+    charnacoin-wallet-cli:
         command: |
-          monero-wallet-cli --log-file ${SNAP_USER_DATA}
+          charnacoin-wallet-cli --log-file ${SNAP_USER_DATA}
         plugs:
             - home
             - network
@@ -68,8 +69,8 @@ parts:
         plugin: dump
         source: .
         organize:
-            contrib/snap/monerod.conf: etc/monerod.conf
-            contrib/snap/monerod-wrapper: bin/monerod-wrapper
+            contrib/snap/charnacoind.conf: etc/charnacoind.conf
+            contrib/snap/charnacoind-wrapper: bin/charnacoind-wrapper
         prime:
             - etc
             - bin

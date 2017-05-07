@@ -104,6 +104,7 @@ public:
   // TODO: modify this to accomodate DNSSEC
    std::vector<std::string> get_txt_record(const std::string& url, bool& dnssec_available, bool& dnssec_valid);
 
+  // @TODO:#CHARNACOIN seed how to adapt this with charnacoin.
   /**
    * @brief Gets a DNS address from OpenAlias format
    *

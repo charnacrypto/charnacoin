@@ -3,6 +3,8 @@
 
 #written by shen-noether monero research labs
 
+#@TODO:#CHARNACOIN checkout this file.
+
 import os #for copying and sed etc.
 import glob #for copy files
 import textwrap #for comments etc

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ ! -d "$SNAP_USER_DATA/etc" ]; then
+  mkdir $SNAP_USER_DATA/etc/
+  cp -R $SNAP/etc/charnacoind.conf $SNAP_USER_DATA/etc/charnacoind.conf
+fi
+
+exec "$SNAP/bin/charnacoind" "$@"

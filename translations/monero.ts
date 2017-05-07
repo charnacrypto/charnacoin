@@ -497,12 +497,12 @@
     </message>
     <message>
         <location filename="../src/simplewallet/simplewallet.cpp" line="1991"/>
-        <source>failed to get a Monero address from: </source>
+        <source>failed to get a Charnacoin address from: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/simplewallet/simplewallet.cpp" line="1997"/>
-        <source>not yet supported: Multiple Monero addresses found for given URL: </source>
+        <source>not yet supported: Multiple Charnacoin addresses found for given URL: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1247,7 +1247,7 @@ Wallet file name (or Ctrl-C to quit): </source>
         <source>Your wallet has been generated!
 To start synchronizing with the daemon, use &quot;refresh&quot; command.
 Use &quot;help&quot; command to see the list of available commands.
-Always use &quot;exit&quot; command when closing monero-wallet-cli to save your
+Always use &quot;exit&quot; command when closing charnacoin-wallet-cli to save your
 current session&apos;s state. Otherwise, you might need to synchronize 
 your wallet again (your wallet keys are NOT at risk in any case).
 </source>
@@ -1370,7 +1370,7 @@ your wallet again (your wallet keys are NOT at risk in any case).
     </message>
     <message>
         <location filename="../src/simplewallet/simplewallet.cpp" line="1972"/>
-        <source> Monero Address = </source>
+        <source> Charnacoin Address = </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1853,7 +1853,7 @@ your wallet again (your wallet keys are NOT at risk in any case).
     </message>
     <message>
         <location filename="../src/wallet/wallet2.cpp" line="106"/>
-        <source>Use daemon instance at port &lt;arg&gt; instead of 18081</source>
+        <source>Use daemon instance at port &lt;arg&gt; instead of 18091</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

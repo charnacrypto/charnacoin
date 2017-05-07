@@ -30,6 +30,8 @@
 # 
 # Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
+# @TODO:#CHARNACOIN look at graph_category monero
+
 case $1 in
    config)
         cat <<'EOM'
@@ -43,4 +45,4 @@ EOM
 esac
 
 printf "height.value "
-# rewrite using curl or similar: /home/user/bitmonero/build/release/src/connectivity_tool --ip=127.0.0.1 --rpc_port=8081 --timeout=1000 --rpc_get_daemon_info | grep height | cut -d ' ' -f2
+# rewrite using curl or similar: /home/user/charnacoin/build/release/src/connectivity_tool --ip=127.0.0.1 --rpc_port=8081 --timeout=1000 --rpc_get_daemon_info | grep height | cut -d ' ' -f2

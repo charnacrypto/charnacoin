@@ -75,7 +75,7 @@ typedef cryptonote::simple_wallet sw;
 
 #define DEFAULT_MIX 4
 
-#define OUTPUT_EXPORT_FILE_MAGIC "Monero output export\003"
+#define OUTPUT_EXPORT_FILE_MAGIC "Charnacoin output export\003"
 
 #define LOCK_IDLE_SCOPE() \
   bool auto_refresh_enabled = m_auto_refresh_enabled.load(std::memory_order_relaxed); \
@@ -585,6 +585,7 @@ bool simple_wallet::set_ask_password(const std::vector<std::string> &args/* = st
   return true;
 }
 
+// @TODO:#CHARNACOIN adjust formatting with charnacoin's unit (piconac, ...)
 bool simple_wallet::set_unit(const std::vector<std::string> &args/* = std::vector<std::string>()*/)
 {
   const std::string &unit = args[1];
@@ -1486,7 +1487,7 @@ bool simple_wallet::new_wallet(const boost::program_options::variables_map& vm,
     tr("Your wallet has been generated!\n"
     "To start synchronizing with the daemon, use \"refresh\" command.\n"
     "Use \"help\" command to see the list of available commands.\n"
-    "Always use \"exit\" command when closing monero-wallet-cli to save your\n"
+    "Always use \"exit\" command when closing charnacoin-wallet-cli to save your\n"
     "current session's state. Otherwise, you might need to synchronize \n"
     "your wallet again (your wallet keys are NOT at risk in any case).\n")
   ;
@@ -3001,8 +3002,10 @@ bool simple_wallet::donate(const std::vector<std::string> &args_)
      return true;
   }
   std::string mixin_str;
-  // Hardcode Monero's donation address (see #1447)
-  const std::string address_str = "44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A";
+  // @TODO:#CHARNACOIN look at this hardcode
+  // Hardcode Charnacoin's donation address
+  // (see monero-project/monero #1447)
+  const std::string address_str = "Cjo7trECi42f2Ph7BJtxc5e2fGtmpVkXLYyE5ynhnnf41p4n9oN3zn696muBZX6CBca8q1c46T5H8ZSKhLHtR2MGCrjLyoZ";
   std::string amount_str;
   std::string payment_id_str;
   // check payment id
@@ -3029,7 +3032,7 @@ bool simple_wallet::donate(const std::vector<std::string> &args_)
   local_args.push_back(amount_str);
   if (!payment_id_str.empty())
     local_args.push_back(payment_id_str);
-  message_writer() << tr("Donating ") << amount_str << " XMR to The Monero Project (donate.getmonero.org/44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A).";
+  message_writer() << tr("Donating ") << amount_str << " CHRC to The Charnacoin Project (donate.charnacoin.com/Cjo7trECi42f2Ph7BJtxc5e2fGtmpVkXLYyE5ynhnnf41p4n9oN3zn696muBZX6CBca8q1c46T5H8ZSKhLHtR2MGCrjLyoZ).";
   transfer_new(local_args);
   return true;
 }
@@ -4452,10 +4455,10 @@ int main(int argc, char* argv[])
 
   const auto vm = wallet_args::main(
    argc, argv,
-   "monero-wallet-cli [--wallet-file=<file>|--generate-new-wallet=<file>] [<COMMAND>]",
+   "charnacoin-wallet-cli [--wallet-file=<file>|--generate-new-wallet=<file>] [<COMMAND>]",
     desc_params,
     positional_options,
-    "monero-wallet-cli.log"
+    "charnacoin-wallet-cli.log"
   );
 
   if (!vm)

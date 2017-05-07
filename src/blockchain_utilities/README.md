@@ -1,5 +1,6 @@
-# Monero Blockchain Utilities
+# Charnacoin Blockchain Utilities
 
+Copyright (c) 2017, The Charnacoin Project
 Copyright (c) 2014-2017, The Monero Project
 
 ## Introduction
@@ -12,16 +13,16 @@ See also each utility's "--help" option.
 
 ### Export an existing blockchain database
 
-`$ monero-blockchain-export`
+`$ charnacoin-blockchain-export`
 
-This loads the existing blockchain and exports it to `$MONERO_DATA_DIR/export/blockchain.raw`
+This loads the existing blockchain and exports it to `$CHARNACOIN_DATA_DIR/export/blockchain.raw`
 
 ### Import the exported file
 
-`$ monero-blockchain-import`
+`$ charnacoin-blockchain-import`
 
-This imports blocks from `$MONERO_DATA_DIR/export/blockchain.raw` (exported using the
-`monero-blockchain-export` tool as described above) into the current database.
+This imports blocks from `$CHARNACOIN_DATA_DIR/export/blockchain.raw` (exported using the
+`charnacoin-blockchain-export` tool as described above) into the current database.
 
 Defaults: `--batch on`, `--batch size 20000`, `--verify on`
 
@@ -30,14 +31,14 @@ Batch size refers to number of blocks and can be adjusted for performance based 
 Verification should only be turned off if importing from a trusted blockchain.
 
 If you encounter an error like "resizing not supported in batch mode", you can just re-run
-the `monero-blockchain-import` command again, and it will restart from where it left off.
+the `charnacoin-blockchain-import` command again, and it will restart from where it left off.
 
 ```bash
 ## use default settings to import blockchain.raw into database
-$ monero-blockchain-import
+$ charnacoin-blockchain-import
 
 ## fast import with large batch size, database mode "fastest", verification off
-$ monero-blockchain-import --batch-size 20000 --database lmdb#fastest --verify off
+$ charnacoin-blockchain-import --batch-size 20000 --database lmdb#fastest --verify off
 
 ```
 
@@ -80,9 +81,9 @@ LMDB flags (more than one may be specified):
 ## Examples:
 
 ```
-$ monero-blockchain-import --database lmdb#fastest
+$ charnacoin-blockchain-import --database lmdb#fastest
 
-$ monero-blockchain-import --database lmdb#nosync
+$ charnacoin-blockchain-import --database lmdb#nosync
 
-$ monero-blockchain-import --database lmdb#nosync,nometasync
+$ charnacoin-blockchain-import --database lmdb#nosync,nometasync
 ```
