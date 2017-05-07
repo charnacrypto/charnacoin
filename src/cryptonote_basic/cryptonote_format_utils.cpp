@@ -54,7 +54,7 @@ static const uint64_t valid_decomposed_outputs[] = {
   (uint64_t)100000, (uint64_t)200000, (uint64_t)300000, (uint64_t)400000, (uint64_t)500000, (uint64_t)600000, (uint64_t)700000, (uint64_t)800000, (uint64_t)900000,
   (uint64_t)1000000, (uint64_t)2000000, (uint64_t)3000000, (uint64_t)4000000, (uint64_t)5000000, (uint64_t)6000000, (uint64_t)7000000, (uint64_t)8000000, (uint64_t)9000000,
   (uint64_t)10000000, (uint64_t)20000000, (uint64_t)30000000, (uint64_t)40000000, (uint64_t)50000000, (uint64_t)60000000, (uint64_t)70000000, (uint64_t)80000000, (uint64_t)90000000,
-  (uint64_t)100000000, (uint64_t)200000000, (uint64_t)300000000, (uint64_t)400000000, (uint64_t)500000000, (uint64_t)600000000, (uint64_t)700000000, (uint64_t)800000000, (uint64_t)900000000, // 1 charnacoin
+  (uint64_t)100000000, (uint64_t)200000000, (uint64_t)300000000, (uint64_t)400000000, (uint64_t)500000000, (uint64_t)600000000, (uint64_t)700000000, (uint64_t)800000000, (uint64_t)900000000, // 1 nac (charnacoin)
   (uint64_t)1000000000, (uint64_t)2000000000, (uint64_t)3000000000, (uint64_t)4000000000, (uint64_t)5000000000, (uint64_t)6000000000, (uint64_t)7000000000, (uint64_t)8000000000, (uint64_t)9000000000,
   (uint64_t)10000000000, (uint64_t)20000000000, (uint64_t)30000000000, (uint64_t)40000000000, (uint64_t)50000000000, (uint64_t)60000000000, (uint64_t)70000000000, (uint64_t)80000000000, (uint64_t)90000000000,
   (uint64_t)100000000000, (uint64_t)200000000000, (uint64_t)300000000000, (uint64_t)400000000000, (uint64_t)500000000000, (uint64_t)600000000000, (uint64_t)700000000000, (uint64_t)800000000000, (uint64_t)900000000000,
@@ -526,15 +526,37 @@ namespace cryptonote
     cn_fast_hash(blob.data(), blob.size(), res);
   }
   //---------------------------------------------------------------
-  // @TODO:#CHARNACOIN adjust formatting with charnacoin's CRYPTONOTE_DISPLAY_DECIMAL_POINT. (automate that will be more efficient).
+  // @TODO:#CHARNACOIN automate formatting with charnacoin's CRYPTONOTE_DISPLAY_DECIMAL_POINT.
+  // considering potentiability usage of the algorythm below
+  // 
+  // if (decimal_point <= CRYPTONOTE_DISPLAY_DECIMAL_POINT) {
+  //   stop_dp = CRYPTONOTE_DISPLAY_DECIMAL_POINT <= 10 ? CRYPTONOTE_DISPLAY_DECIMAL_POINT : 10;
+  //   i = 1;
+  //   for(;i<stop_dp;i++) if (CRYPTONOTE_DISPLAY_DECIMAL_POINT/i==4) break;
+  //   if (i < stop_dp)
+  //     switch (decimal_point)
+  //     {
+  //       case i*4:
+  //       case i*3:
+  //       case i*2:
+  //       case i:
+  //       case 0:
+  //         default_decimal_point = decimal_point;
+  //         break;
+  //       default:
+  //         ASSERT_MES_AND_THROW("Invalid decimal point specification: " << decimal_point);
+  //     }
+  // }
+  // else ASSERT_MES_AND_THROW("Unexpected decimal point specified, shall be smaller or equal to: " << CRYPTONOTE_DISPLAY_DECIMAL_POINT);
+  // 
   void set_default_decimal_point(unsigned int decimal_point)
   {
     switch (decimal_point)
     {
-      case 12:
-      case 9:
+      case 8:
       case 6:
-      case 3:
+      case 4:
+      case 2:
       case 0:
         default_decimal_point = decimal_point;
         break;
@@ -548,23 +570,49 @@ namespace cryptonote
     return default_decimal_point;
   }
   //---------------------------------------------------------------
-  // @TODO:#CHARNACOIN adjust formatting with charnacoin's CRYPTONOTE_DISPLAY_DECIMAL_POINT. (automate that will be more efficient).
+  // @TODO:#CHARNACOIN automate formatting with charnacoin's CRYPTONOTE_DISPLAY_DECIMAL_POINT.
+  // considering potentiability usage of the algorythm below
+  // 
+  // dec_p = std::atomic_load(&decimal_point)
+  // if (dec_p <= cddp) {
+  //   stop_dp = dec_p <= 10 ? dec_p : 10;
+  //   i = 1;
+  //   for(;i<stop_dp;i++) if (dec_p/i==4) break;
+  //   if (i < stop_dp)
+  //     switch (dec_p)
+  //     {
+  //       case i*4:
+  //         return "nac";
+  //       case i*3:
+  //         return "millinac";
+  //       case i*2:
+  //         return "micronac";
+  //       case i:
+  //         return "nanonac";
+  //       case 0:
+  //         return "piconac";
+  //       default:
+  //         break;
+  //     }
+  // }
+  // ASSERT_MES_AND_THROW("Invalid decimal point specification: " << default_decimal_point);
+  // 
   std::string get_unit(unsigned int decimal_point)
   {
     if (decimal_point == (unsigned int)-1)
-      decimal_point = default_decimal_point;
+      decimal_point = default_decimal_point; // #CHARNACOIN: misused instruction ???
     switch (std::atomic_load(&default_decimal_point))
     {
-      case 12:
-        return "monero";
-      case 9:
-        return "millinero";
+      case 8:
+        return "nac";
       case 6:
-        return "micronero";
-      case 3:
-        return "nanonero";
+        return "millinac";
+      case 4:
+        return "micronac";
+      case 2:
+        return "nanonac";
       case 0:
-        return "piconero";
+        return "piconac";
       default:
         ASSERT_MES_AND_THROW("Invalid decimal point specification: " << default_decimal_point);
     }
