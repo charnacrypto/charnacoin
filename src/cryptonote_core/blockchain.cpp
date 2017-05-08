@@ -79,6 +79,7 @@ DISABLE_VS_WARNINGS(4267)
 // used to overestimate the block reward when estimating a per kB to use
 #define BLOCK_REWARD_OVERESTIMATE (10 * 1000000000000)
 
+// @TODO:#CHARNACOIN: manage correct settings for hardfork version
 static const struct {
   uint8_t version;
   uint64_t height;

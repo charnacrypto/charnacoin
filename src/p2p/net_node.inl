@@ -403,11 +403,19 @@ namespace nodetool
     std::set<std::string> full_addrs;
     if (testnet)
     {
-      // full_addrs.insert("212.83.175.67:28090");
+      full_addrs.insert("107.172.253.245:28090");
+      full_addrs.insert("192.227.174.200:28090");
+      full_addrs.insert("192.227.174.201:28090");
+      full_addrs.insert("192.227.174.202:28090");
+      full_addrs.insert("192.227.174.203:28090");
     }
     else
     {
-      // full_addrs.insert("107.152.130.98:18090");
+      full_addrs.insert("107.172.253.245:18090");
+      full_addrs.insert("192.227.174.200:18090");
+      full_addrs.insert("192.227.174.201:18090");
+      full_addrs.insert("192.227.174.202:18090");
+      full_addrs.insert("192.227.174.203:18090");
     }
     return full_addrs;
   }
@@ -487,7 +495,7 @@ namespace nodetool
       {
         MDEBUG("DNS lookup for " << m_seed_nodes_list[i] << ": " << result.size() << " results");
         // if no results for node, thread's lookup likely timed out
-        // @TODO: #CHARNACOIN: use global config P2P port variable instead, find same behavior on other files
+        // @TODO:#CHARNACOIN use global config P2P port variable instead, find same behavior on other files
         if (result.size())
         {
           for (const auto& addr_string : result)

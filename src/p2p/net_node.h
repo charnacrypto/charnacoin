@@ -126,6 +126,7 @@ namespace nodetool
     virtual bool block_ip(uint32_t adress, time_t seconds = P2P_IP_BLOCKTIME);
     virtual bool unblock_ip(uint32_t address);
     virtual std::map<uint32_t, time_t> get_blocked_ips() { CRITICAL_REGION_LOCAL(m_blocked_ips_lock); return m_blocked_ips; }
+    // @TODO:#CHARNACOIN: set seed node uri
   private:
     const std::vector<std::string> m_seed_nodes_list =
     { 
