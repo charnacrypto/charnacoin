@@ -113,6 +113,7 @@ DISABLE_VS_WARNINGS(4244 4345)
     timestamp.tm_min = 0;
     timestamp.tm_sec = 0;
 
+    // @TODO:#CHARNACOIN see if (uint64_t)-1) here have anything to do with currency's max amount and find all occurrence where to also adjust
     m_creation_timestamp = mktime(&timestamp);
     if (m_creation_timestamp == (uint64_t)-1) // failure
       m_creation_timestamp = 0; // lowest value
