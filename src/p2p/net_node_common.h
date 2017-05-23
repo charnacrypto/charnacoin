@@ -28,6 +28,8 @@
 // 
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
+// @TODO:#CHARNACOIN reviews "Support Flags" [56b799ad8]
+
 #pragma once
 
 #include <boost/uuid/uuid.hpp>
@@ -50,7 +52,7 @@ namespace nodetool
     virtual bool drop_connection(const epee::net_utils::connection_context_base& context)=0;
     virtual void request_callback(const epee::net_utils::connection_context_base& context)=0;
     virtual uint64_t get_connections_count()=0;
-    virtual void for_each_connection(std::function<bool(t_connection_context&, peerid_type, uint32_t)> f)=0;
+    virtual void for_each_connection(std::function<bool(t_connection_context&, peerid_type)> f)=0;
     virtual bool block_ip(uint32_t adress, time_t seconds = 0)=0;
     virtual bool unblock_ip(uint32_t adress)=0;
     virtual std::map<uint32_t, time_t> get_blocked_ips()=0;
@@ -84,7 +86,7 @@ namespace nodetool
     {
 
     }
-    virtual void for_each_connection(std::function<bool(t_connection_context&,peerid_type,uint32_t)> f)
+    virtual void for_each_connection(std::function<bool(t_connection_context&,peerid_type)> f)
     {
 
     }
