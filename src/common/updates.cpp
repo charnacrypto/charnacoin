@@ -43,7 +43,7 @@ namespace tools
     MDEBUG("Checking updates for " << buildtag << " " << software);
 
     // All four CharnacoinPulse domains have DNSSEC on and valid
-    // @TODO:#CHARNACOIN either to have dns pulses for this, it will be maybe better to request update's urls from particulars links.
+    // @TODO:#CHARNACOIN either to have dns pulses for this, it will be maybe better to request update's status from a particular link.
     // Results can be retrieve in JSON or appriate format as dns_urls to be therefore used below
     static const std::vector<std::string> dns_urls = {
         // "updates.moneropulse.org",
@@ -94,21 +94,19 @@ namespace tools
     return found;
   }
 
-  std::string get_update_url(const std::string &software, const std::string &subdir, const std::string &buildtag, const std::string &version, bool user)
+  std::string get_update_url(const std::string &software, const std::string &buildtag, const std::string &version, bool user)
   {
-    const char *base = user ? "https://charnacoin.com/downloads" : "https://charnacoin.com/updates";
+    const char *base = "https://github.com/charnacrypto";
+    std::string url = std::string(base) + "/" + software + "/releases/download";
+
+    if (user) return url;
 #ifdef _WIN32
     static const char extension[] = ".zip";
 #else
-    static const char extension[] = ".tar.bz2";
+    static const char extension[] = ".tar.gz";
 #endif
 
-    std::string url;
-
-    url =  base;
-    if (!subdir.empty())
-      url += subdir + "/";
-    url = url + software + "-" + buildtag + "-v" + version + extension;
+    url = url + "/" + "v" + version + "/" + software + "-" + buildtag + extension;
     return url;
   }
 }

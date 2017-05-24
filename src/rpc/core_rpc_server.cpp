@@ -1526,8 +1526,8 @@ namespace cryptonote
     }
     res.update = true;
     res.version = version;
-    res.user_uri = tools::get_update_url(software, "cli", buildtag, version, true);
-    res.auto_uri = tools::get_update_url(software, "cli", buildtag, version, false);
+    res.user_uri = tools::get_update_url(software, buildtag, version, true);
+    res.auto_uri = tools::get_update_url(software, buildtag, version, false);
     res.hash = hash;
     if (req.command == "check")
     {

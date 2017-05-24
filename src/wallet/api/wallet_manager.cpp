@@ -430,7 +430,7 @@ std::string WalletManagerImpl::resolveOpenAlias(const std::string &address, bool
     return addresses.front();
 }
 
-std::tuple<bool, std::string, std::string, std::string, std::string> WalletManager::checkUpdates(const std::string &software, const std::string &subdir)
+std::tuple<bool, std::string, std::string, std::string, std::string> WalletManager::checkUpdates(const std::string &software)
 {
 #ifdef BUILD_TAG
     static const char buildtag[] = BOOST_PP_STRINGIZE(BUILD_TAG);
@@ -445,8 +445,8 @@ std::tuple<bool, std::string, std::string, std::string, std::string> WalletManag
 
     if (tools::vercmp(version.c_str(), MONERO_VERSION) > 0)
     {
-      std::string user_url = tools::get_update_url(software, subdir, buildtag, version, true);
-      std::string auto_url = tools::get_update_url(software, subdir, buildtag, version, false);
+      std::string user_url = tools::get_update_url(software, buildtag, version, true);
+      std::string auto_url = tools::get_update_url(software, buildtag, version, false);
       MGINFO("Version " << version << " of " << software << " for " << buildtag << " is available: " << user_url << ", SHA256 hash " << hash);
       return std::make_tuple(true, version, hash, user_url, auto_url);
     }

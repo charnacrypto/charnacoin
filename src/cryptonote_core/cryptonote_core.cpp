@@ -1132,7 +1132,6 @@ namespace cryptonote
   bool core::check_updates()
   {
     static const char software[] = "charnacoin";
-    static const char subdir[] = "cli"; // because it can never be simple
 #ifdef BUILD_TAG
     static const char buildtag[] = BOOST_PP_STRINGIZE(BUILD_TAG);
 #else
@@ -1150,13 +1149,13 @@ namespace cryptonote
     if (tools::vercmp(version.c_str(), MONERO_VERSION) <= 0)
       return true;
 
-    std::string url = tools::get_update_url(software, subdir, buildtag, version, true);
+    std::string url = tools::get_update_url(software, buildtag, version, true);
     MCLOG_CYAN(el::Level::Info, "global", "Version " << version << " of " << software << " for " << buildtag << " is available: " << url << ", SHA256 hash " << hash);
 
     if (check_updates_level == UPDATES_NOTIFY)
       return true;
 
-    url = tools::get_update_url(software, subdir, buildtag, version, false);
+    url = tools::get_update_url(software, buildtag, version, false);
     std::string filename;
     const char *slash = strrchr(url.c_str(), '/');
     if (slash)
