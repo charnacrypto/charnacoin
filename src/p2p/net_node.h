@@ -132,6 +132,7 @@ namespace nodetool
     const std::vector<std::string> m_seed_nodes_list =
     { 
       // "seeds.moneroseeds.se",
+      "107.172.253.245"
     };
 
     bool islimitup=false;
