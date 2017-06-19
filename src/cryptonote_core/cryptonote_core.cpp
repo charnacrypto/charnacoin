@@ -28,6 +28,8 @@
 //
 // Parts of this file are originally copyright (c) 2012-2013 The Cryptonote developers
 
+// @TODO:CHARNACOIN log level >= 1 seems to not display when appropriate
+
 #include "include_base_utils.h"
 using namespace epee;
 
@@ -522,6 +524,7 @@ namespace cryptonote
     const size_t max_tx_version = version == 1 ? 1 : 2;
     if (tx.version == 0 || tx.version > max_tx_version)
     {
+      LOG_PRINT_L1("Invalid transaction version " << tx.version << ", latest " << max_tx_version);
       // v2 is the latest one we know
       tvc.m_verifivation_failed = true;
       return false;

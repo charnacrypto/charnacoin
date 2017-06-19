@@ -623,6 +623,7 @@ namespace cryptonote
         res.reason = "fee too low";
       if ((res.not_rct = tvc.m_not_rct))
         res.reason = "tx is not ringct";
+      LOG_PRINT_L0("[on_send_raw_tx]: tx failed reason: " << (res.reason == "" ? "no reason": res.reason));
       return true;
     }
 
