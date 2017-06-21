@@ -133,7 +133,7 @@
 #define HF_VERSION_MIN_MIXIN_4                  6
 #define HF_VERSION_ENFORCE_RCT                  6
 
-#define PER_KB_FEE_QUANTIZATION_DECIMALS        8
+#define PER_KB_FEE_QUANTIZATION_DECIMALS        8  // @TODO:CHARNACOIN review this
 
 // New constants are intended to go here
 namespace config
