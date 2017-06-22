@@ -948,7 +948,8 @@ PendingTransaction *WalletImpl::createTransaction(const string &dst_addr, const 
                 de.addr = addr;
                 de.amount = *amount;
                 dsts.push_back(de);
-                transaction->m_pending_tx = m_wallet->create_transactions_2(dsts, fake_outs_count, 0 /* unlock_time */,
+                // @TODO:CHARNACOIN use monero new transactions creation algorithm. This with appropriated settings and harfork v4
+                transaction->m_pending_tx = m_wallet->create_transactions(dsts, fake_outs_count, 0 /* unlock_time */,
                                                                           static_cast<uint32_t>(priority),
                                                                           extra, m_trustedDaemon);
             } else {
