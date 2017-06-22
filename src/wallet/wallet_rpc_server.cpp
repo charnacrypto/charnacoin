@@ -395,7 +395,7 @@ namespace tools
         LOG_PRINT_L1("Requested mixin " << req.mixin << " too low for hard fork 2, using 2");
         mixin = 2;
       }
-      // @TODO:CHARNACOIN use monero new transactions creation algorithm. This with appropriated settings and harfork v4
+      // @TODO:#CHARNACOIN use monero new transactions creation algorithm. This with appropriated settings and harfork v4
       std::vector<wallet2::pending_tx> ptx_vector = m_wallet.create_transactions(dsts, mixin, req.unlock_time, req.priority, extra, m_trusted_daemon);
 
       // reject proposed transactions if there are more than one.  see on_transfer_split below.
@@ -464,7 +464,7 @@ namespace tools
         LOG_PRINT_L1("Requested mixin " << req.mixin << " too low for hard fork 2, using 2");
         mixin = 2;
       }
-      // @TODO:CHARNACOIN use monero new transactions creation algorithm. This with appropriated settings and harfork v4
+      // @TODO:#CHARNACOIN use monero new transactions creation algorithm. This with appropriated settings and harfork v4
       std::vector<wallet2::pending_tx> ptx_vector;
       LOG_PRINT_L2("on_transfer_split calling create_transactions");
       ptx_vector = m_wallet.create_transactions(dsts, mixin, req.unlock_time, req.priority, extra, m_trusted_daemon);
