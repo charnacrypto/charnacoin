@@ -41,7 +41,7 @@
 #define CRYPTONOTE_MAX_TX_SIZE                          1000000000
 #define CRYPTONOTE_PUBLIC_ADDRESS_TEXTBLOB_VER          0
 #define CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW            60
-#define CURRENT_TRANSACTION_VERSION                     1 // @NOTE:CHARNACOIN latest is version 2 for hard fork version >= 2
+#define CURRENT_TRANSACTION_VERSION                     2
 #define CURRENT_BLOCK_MAJOR_VERSION                     1
 #define CURRENT_BLOCK_MINOR_VERSION                     0
 #define CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT              60*60*2
@@ -50,7 +50,7 @@
 #define BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW               60
 
 // MONEY_SUPPLY - total number coins to be generated
-#define MONEY_SUPPLY                                    ((uint64_t)700000000000000)
+#define MONEY_SUPPLY                                    ((uint64_t)19999999900000000)
 #define EMISSION_SPEED_FACTOR_PER_MINUTE                (19)
 #define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)30000000) // 3 * pow(10, 7)
 
@@ -120,7 +120,7 @@
 
 #define ALLOW_DEBUG_COMMANDS
 
-#define CRYPTONOTE_NAME                         "vmtes2"
+#define CRYPTONOTE_NAME                         "charnacoin"
 #define CRYPTONOTE_POOLDATA_FILENAME            "poolstate.bin"
 #define CRYPTONOTE_BLOCKCHAINDATA_FILENAME      "data.mdb"
 #define CRYPTONOTE_BLOCKCHAINDATA_LOCK_FILENAME "lock.mdb"
@@ -133,37 +133,37 @@
 #define HF_VERSION_MIN_MIXIN_4                  6
 #define HF_VERSION_ENFORCE_RCT                  6
 
-#define PER_KB_FEE_QUANTIZATION_DECIMALS        8  // @TODO:CHARNACOIN review this
+#define PER_KB_FEE_QUANTIZATION_DECIMALS        8
 
 // New constants are intended to go here
 namespace config
 {
   uint64_t const DEFAULT_FEE_ATOMIC_XMR_PER_KB = 500; // Just a placeholder!  Change me!
   uint8_t const FEE_CALCULATION_MAX_RETRIES = 10;
-  uint64_t const DEFAULT_DUST_THRESHOLD = ((uint64_t)200000); // 2 * pow(10, 5)
-  uint64_t const BASE_REWARD_CLAMP_THRESHOLD = ((uint64_t)10000); // pow(10, 5)
+  uint64_t const DEFAULT_DUST_THRESHOLD = ((uint64_t)2000000000); // 2 * pow(10, 9)
+  uint64_t const BASE_REWARD_CLAMP_THRESHOLD = ((uint64_t)100000000); // pow(10, 8)
   std::string const P2P_REMOTE_DEBUG_TRUSTED_PUB_KEY = "0000000000000000000000000000000000000000000000000000000000000000";
 
   uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 70;
   uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 71;
-  uint16_t const P2P_DEFAULT_PORT = 48090;
-  uint16_t const RPC_DEFAULT_PORT = 48091;
+  uint16_t const P2P_DEFAULT_PORT = 18090;
+  uint16_t const RPC_DEFAULT_PORT = 18091;
   boost::uuids::uuid const NETWORK_ID = { {
-      0x81, 0x23, 0xb2, 0xc9, 0xb9, 0x2a, 0xb3, 0xfd, 0x47, 0x48, 0x7c, 0x0d, 0x78, 0x37, 0xc6, 0xb6
-    } }; // Bender's nightmare    013c01ff0001                                                                                              
-  std::string const GENESIS_TX = "013c01ff0001eadcd2fc04029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101b6cc610506ab4e00dea46898d7ba6d6ceb4fc8e769fc5fc91de11c817da971c7";
+      0x85, 0x23, 0xb2, 0xc9, 0xb9, 0x2a, 0xb3, 0xfd, 0x47, 0x48, 0x7c, 0x0d, 0x78, 0x37, 0xc6, 0xb6
+    } }; // Bender's nightmare
+  std::string const GENESIS_TX = "013c01ff0001b1b6f28d8e01029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101ece570300c1783fe08c357a610782f856c4b9188b26bee2098fe8f4d5673d06e";
   uint32_t const GENESIS_NONCE = 10000;
 
   namespace testnet
   {
     uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 1;
     uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 2;
-    uint16_t const P2P_DEFAULT_PORT = 48090;
-    uint16_t const RPC_DEFAULT_PORT = 48091;
+    uint16_t const P2P_DEFAULT_PORT = 28090;
+    uint16_t const RPC_DEFAULT_PORT = 28091;
     boost::uuids::uuid const NETWORK_ID = { {
-        0x81, 0x23, 0xb2, 0xc9, 0xb9, 0x2a, 0xb3, 0xfd, 0x47, 0x48, 0x7c, 0x0d, 0x78, 0x37, 0xc6, 0xb7
-      } }; // Bender's daydream                                                                                                   
-    std::string const GENESIS_TX = "013c01ff0001eadcd2fc04029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101dd99806a7d0daa94340109a13c70ecdfe321c3110dbcb34a416b3b6b571bf1c3";
+        0x85, 0x23, 0xb2, 0xc9, 0xb9, 0x2a, 0xb3, 0xfd, 0x47, 0x48, 0x7c, 0x0d, 0x78, 0x37, 0xc6, 0xb7
+      } }; // Bender's daydream
+    std::string const GENESIS_TX = "013c01ff0001b1b6f28d8e01029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd08807121012d72bc61f84e9ce75e8899438715e47b82a14b7ebbc94f8f5a56531e6b88e9f2";
     uint32_t const GENESIS_NONCE = 10001;
   }
 }
