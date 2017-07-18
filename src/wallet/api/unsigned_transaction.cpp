@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017, The Monero Project
+// Copyright (c) 2014-2017, The ValarMorghulis Project
 //
 // All rights reserved.
 //
@@ -42,7 +42,7 @@
 
 using namespace std;
 
-namespace Monero {
+namespace ValarMorghulis {
 
 UnsignedTransaction::~UnsignedTransaction() {}
 
@@ -274,5 +274,5 @@ uint64_t UnsignedTransactionImpl::minMixinCount() const
 
 } // namespace
 
-namespace Bitmonero = Monero;
+namespace Bitmonero = ValarMorghulis;
 

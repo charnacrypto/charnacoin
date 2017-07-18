@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017, The Monero Project
+// Copyright (c) 2014-2017, The ValarMorghulis Project
 // 
 // All rights reserved.
 // 
@@ -138,7 +138,7 @@
 // New constants are intended to go here
 namespace config
 {
-  uint64_t const DEFAULT_FEE_ATOMIC_XMR_PER_KB = 500; // Just a placeholder!  Change me!
+  uint64_t const DEFAULT_FEE_ATOMIC_VM_PER_KB = 500; // Just a placeholder!  Change me!
   uint8_t const FEE_CALCULATION_MAX_RETRIES = 10;
   uint64_t const DEFAULT_DUST_THRESHOLD = ((uint64_t)2000000000); // 2 * pow(10, 9)
   uint64_t const BASE_REWARD_CLAMP_THRESHOLD = ((uint64_t)100000000); // pow(10, 8)
@@ -159,7 +159,7 @@ namespace config
     uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 1;
     uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 2;
     uint16_t const P2P_DEFAULT_PORT = 28090;
-    uint16_t const RPC_DEFAULT_PORT = 28091;
+    uint16_t const RPC_DEFAULT_PORT = 58091;
     boost::uuids::uuid const NETWORK_ID = { {
         0x85, 0x23, 0xb2, 0xc9, 0xb9, 0x2a, 0xb3, 0xfd, 0x47, 0x48, 0x7c, 0x0d, 0x78, 0x37, 0xc6, 0xb7
       } }; // Bender's daydream

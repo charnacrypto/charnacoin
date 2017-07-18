@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017, The Monero Project
+// Copyright (c) 2014-2017, The ValarMorghulis Project
 //
 // All rights reserved.
 //
@@ -42,7 +42,7 @@
 
 using namespace std;
 
-namespace Monero {
+namespace ValarMorghulis {
 
 PendingTransaction::~PendingTransaction() {}
 
@@ -172,5 +172,5 @@ uint64_t PendingTransactionImpl::txCount() const
 
 }
 
-namespace Bitmonero = Monero;
+namespace Bitmonero = ValarMorghulis;
 

@@ -1,31 +1,31 @@
-name: monero
+name: vm
 version: 0.10.2-1
-summary: "Monero: the secure, private, untraceable cryptocurrency https://getmonero.org"
+summary: "ValarMorghulis: the secure, private, untraceable cryptocurrency https://valarmorghulis.eu"
 description: |
-    Monero is a private, secure, untraceable, decentralised digital currency.
+    ValarMorghulis is a private, secure, untraceable, decentralised digital currency.
     You are your bank, you control your funds, and nobody can trace your transfers
     unless you allow them to do so.
 grade: devel
 confinement: strict
 
 apps:
-    monerod:
+    vmd:
         daemon: forking
         command: |
-          monerod-wrapper --detach --data-dir ${SNAP_COMMON} --config-file ${SNAP_USER_DATA}/etc/monerod.conf
+          vmd.conf --detach --data-dir ${SNAP_COMMON} --config-file ${SNAP_USER_DATA}/etc/vmd.conf
         plugs:
             - network
             - network-bind
-    monero-wallet-rpc:
+    vm-wallet-rpc:
         command: |
-          monero-wallet-rpc --log-file ${SNAP_USER_DATA}
+          vm-wallet-rpc --log-file ${SNAP_USER_DATA}
         plugs:
             - home
             - network
             - network-bind
-    monero-wallet-cli:
+    vm-wallet-cli:
         command: |
-          monero-wallet-cli --log-file ${SNAP_USER_DATA}
+          vm-wallet-cli --log-file ${SNAP_USER_DATA}
         plugs:
             - home
             - network
@@ -68,8 +68,8 @@ parts:
         plugin: dump
         source: .
         organize:
-            contrib/snap/monerod.conf: etc/monerod.conf
-            contrib/snap/monerod-wrapper: bin/monerod-wrapper
+            contrib/snap/vmd.conf: etc/vmd.conf
+            contrib/snap/vmd.conf: bin/vmd.conf
         prime:
             - etc
             - bin

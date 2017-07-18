@@ -1,4 +1,4 @@
-// Copyright (c) 2017, The Monero Project
+// Copyright (c) 2017, The ValarMorghulis Project
 // 
 // All rights reserved.
 // 
@@ -42,7 +42,7 @@ namespace tools
 
     MDEBUG("Checking updates for " << buildtag << " " << software);
 
-    // All four MoneroPulse domains have DNSSEC on and valid
+    // All four ValarMorghulisPulse domains have DNSSEC on and valid
     static const std::vector<std::string> dns_urls = {
         // "updates.moneropulse.org",
     };

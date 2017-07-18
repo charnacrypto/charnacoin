@@ -1,4 +1,4 @@
-# Copyright (c) 2014-2017, The Monero Project
+# Copyright (c) 2014-2017, The ValarMorghulis Project
 #
 # All rights reserved.
 #
@@ -102,5 +102,5 @@ target_link_libraries(daemon
 add_dependencies(daemon version)
 set_property(TARGET daemon
   PROPERTY
-    OUTPUT_NAME "monerod")
+    OUTPUT_NAME "vmd")
 install(TARGETS daemon DESTINATION bin)

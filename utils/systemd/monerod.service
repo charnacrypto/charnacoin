@@ -1,16 +1,16 @@
 [Unit]
-Description=Monero Full Node
+Description=ValarMorghulis Full Node
 After=network.target
 
 [Service]
-User=monero
-Group=monero
+User=vm
+Group=vm
 WorkingDirectory=~
 
 Type=forking
-ExecStart=/usr/bin/monerod --config-file /etc/monerod.conf --detach
+ExecStart=/usr/bin/vmd --config-file /etc/vmd.conf --detach
 
-# This is necessary because monerod does not yet support
+# This is necessary because vmd does not yet support
 # writing a PID file, which means systemd tries to guess the PID
 # by default, but it guesses wrong (sometimes, depending on
 # random timing of events), because the daemon forks twice.

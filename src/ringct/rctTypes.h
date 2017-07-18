@@ -1,4 +1,4 @@
-// Copyright (c) 2016, Monero Research Labs
+// Copyright (c) 2016, ValarMorghulis Research Labs
 //
 // Author: Shen Noether <shen.noether@gmx.com>
 //

@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017, The Monero Project
+// Copyright (c) 2014-2017, The ValarMorghulis Project
 // 
 // All rights reserved.
 // 
@@ -787,7 +787,7 @@ TEST(Serialization, portability_wallet)
   }
 }
 
-#define OUTPUT_EXPORT_FILE_MAGIC "Monero output export\003"
+#define OUTPUT_EXPORT_FILE_MAGIC "ValarMorghulis output export\003"
 TEST(Serialization, portability_outputs)
 {
   // read file
@@ -903,7 +903,7 @@ TEST(Serialization, portability_outputs)
   ASSERT_TRUE(td2.m_pk_index == 0);
 }
 
-#define UNSIGNED_TX_PREFIX "Monero unsigned tx set\003"
+#define UNSIGNED_TX_PREFIX "ValarMorghulis unsigned tx set\003"
 TEST(Serialization, portability_unsigned_tx)
 {
   const string filename = epee::string_tools::get_current_module_folder() + "/../../../../tests/data/unsigned_monero_tx";
@@ -1053,7 +1053,7 @@ TEST(Serialization, portability_unsigned_tx)
   ASSERT_TRUE(td2.m_pk_index == 0);
 }
 
-#define SIGNED_TX_PREFIX "Monero signed tx set\003"
+#define SIGNED_TX_PREFIX "ValarMorghulis signed tx set\003"
 TEST(Serialization, portability_signed_tx)
 {
   const string filename = epee::string_tools::get_current_module_folder() + "/../../../../tests/data/signed_monero_tx";

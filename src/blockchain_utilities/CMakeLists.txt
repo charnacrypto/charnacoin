@@ -1,4 +1,4 @@
-# Copyright (c) 2014-2017, The Monero Project
+# Copyright (c) 2014-2017, The ValarMorghulis Project
 #
 # All rights reserved.
 #
@@ -88,7 +88,7 @@ add_dependencies(blockchain_import
 	version)
 set_property(TARGET blockchain_import
 	PROPERTY
-	OUTPUT_NAME "monero-blockchain-import")
+	OUTPUT_NAME "vm-blockchain-import")
 
 monero_add_executable(blockchain_export
   ${blockchain_export_sources}
@@ -110,7 +110,7 @@ add_dependencies(blockchain_export
 	version)
 set_property(TARGET blockchain_export
 	PROPERTY
-	OUTPUT_NAME "monero-blockchain-export")
+	OUTPUT_NAME "vm-blockchain-export")
 
 monero_add_executable(cn_deserialize
   ${cn_deserialize_sources}

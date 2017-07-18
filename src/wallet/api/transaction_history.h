@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017, The Monero Project
+// Copyright (c) 2014-2017, The ValarMorghulis Project
 //
 // All rights reserved.
 //
@@ -31,7 +31,7 @@
 #include "wallet/wallet2_api.h"
 #include <boost/thread/shared_mutex.hpp>
 
-namespace Monero {
+namespace ValarMorghulis {
 
 class WalletImpl;
 
@@ -56,5 +56,5 @@ private:
 
 }
 
-namespace Bitmonero = Monero;
+namespace Bitmonero = ValarMorghulis;
 

@@ -1,6 +1,6 @@
-// Word list created by Monero contributor Shrikez
+// Word list created by ValarMorghulis contributor Shrikez
 // 
-// Copyright (c) 2014-2017, The Monero Project
+// Copyright (c) 2014-2017, The ValarMorghulis Project
 // 
 // All rights reserved.
 // 

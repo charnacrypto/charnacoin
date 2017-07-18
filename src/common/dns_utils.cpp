@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017, The Monero Project
+// Copyright (c) 2014-2017, The ValarMorghulis Project
 //
 // All rights reserved.
 //
@@ -369,7 +369,7 @@ std::string address_from_txt_record(const std::string& s)
  *
  * gets the monero address from the TXT record of the DNS entry associated
  * with <url>.  If this lookup fails, or the TXT record does not contain an
- * XMR address in the correct format, returns an empty string.  <dnssec_valid>
+ * VM address in the correct format, returns an empty string.  <dnssec_valid>
  * will be set true or false according to whether or not the DNS query passes
  * DNSSEC validation.
  *
@@ -417,7 +417,7 @@ std::string get_account_address_as_str_from_url(const std::string& url, bool& dn
   // for now, move on only if one address found
   if (addresses.size() > 1)
   {
-    LOG_ERROR("not yet supported: Multiple Monero addresses found for given URL: " << url);
+    LOG_ERROR("not yet supported: Multiple ValarMorghulis addresses found for given URL: " << url);
     return {};
   }
   if (!cli_confirm)
@@ -436,7 +436,7 @@ std::string get_account_address_as_str_from_url(const std::string& url, bool& dn
   std::stringstream prompt;
   prompt << tr("For URL: ") << url
          << ", " << dnssec_str << std::endl
-         << tr(" Monero Address = ") << addresses[0]
+         << tr(" ValarMorghulis Address = ") << addresses[0]
          << std::endl
          << tr("Is this OK? (Y/n) ")
   ;  
@@ -528,7 +528,7 @@ bool load_txt_records_from_dns(std::vector<std::string> &good_records, const std
 
   if (num_valid_records < 2)
   {
-    LOG_PRINT_L0("WARNING: no two valid MoneroPulse DNS checkpoint records were received");
+    LOG_PRINT_L0("WARNING: no two valid ValarMorghulisPulse DNS checkpoint records were received");
     return false;
   }
 
@@ -550,7 +550,7 @@ bool load_txt_records_from_dns(std::vector<std::string> &good_records, const std
 
   if (good_records_index < 0)
   {
-    LOG_PRINT_L0("WARNING: no two MoneroPulse DNS checkpoint records matched");
+    LOG_PRINT_L0("WARNING: no two ValarMorghulisPulse DNS checkpoint records matched");
     return false;
   }
 
