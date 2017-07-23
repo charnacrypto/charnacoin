@@ -340,7 +340,7 @@ const char *tr(const char *str) { return i18n_translate(str, "tools::dns_utils")
 std::string address_from_txt_record(const std::string& s)
 {
   // make sure the txt record has "oa1:xmr" and find it
-  auto pos = s.find("oa1:xmr");
+  auto pos = s.find("oa1:vm");
   if (pos == std::string::npos)
     return {};
   // search from there to find "recipient_address="

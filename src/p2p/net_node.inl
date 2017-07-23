@@ -404,10 +404,14 @@ namespace nodetool
     if (testnet)
     {
       // full_addrs.insert("212.83.175.67:28090");
+      full_addrs.insert("192.168.1.42:48090");
+      full_addrs.insert("192.168.1.42:48090");
     }
     else
     {
       // full_addrs.insert("107.152.130.98:18090");
+      full_addrs.insert("192.168.1.42:47090");
+      full_addrs.insert("192.168.1.42:47090");
     }
     return full_addrs;
   }
