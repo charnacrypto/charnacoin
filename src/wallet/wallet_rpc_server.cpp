@@ -57,8 +57,7 @@ namespace
   const command_line::arg_descriptor<bool> arg_disable_rpc_login = {"disable-rpc-login", "Disable HTTP authentication for RPC connections served by this process"};
   const command_line::arg_descriptor<bool> arg_trusted_daemon = {"trusted-daemon", "Enable commands which rely on a trusted daemon", false};
 
-  // @TODO:#CHARNACOIN change this to charnacoin
-  constexpr const char default_rpc_username[] = "monero";
+  constexpr const char default_rpc_username[] = "charnacoin";
 }
 
 namespace tools
